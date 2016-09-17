@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CharacterController : MonoBehaviour {
 	public float speed = 10.5f;
+	public GameObject menuGameObject;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,15 @@ public class CharacterController : MonoBehaviour {
 		// Change the cursor state while coming out of the play
 		if (Input.GetKeyDown ("escape")) {
 			Cursor.lockState = CursorLockMode.None;	
+		}
+
+		if (Input.GetKeyDown (KeyCode.O)) {
+			Debug.Log ("O key detected");
+			menuGameObject.transform.localRotation = Quaternion.AngleAxis (0, Vector3.right);
+		}
+
+		if (Input.GetKeyDown (KeyCode.C)) {
+			menuGameObject.transform.localRotation = Quaternion.AngleAxis (90,Vector3.right);
 		}
 	}
 }
